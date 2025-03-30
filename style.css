@@ -1,0 +1,521 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0a0a1a;
+    color: #fff;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.eid-card {
+    background: linear-gradient(135deg, #4a1d6a 0%, #8a2be2 100%);
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 15px 50px rgba(138, 43, 226, 0.4);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.eid-card::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 8s infinite ease-in-out;
+}
+
+.eid-card::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 10s infinite ease-in-out reverse;
+}
+
+/* Watermark */
+.watermark {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 14px;
+    font-style: italic;
+    color: rgba(255, 215, 0, 0.7);
+    transform: rotate(-5deg);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(20px, 20px);
+    }
+}
+
+.moon-stars-container {
+    position: relative;
+    height: 150px;
+    margin-bottom: 30px;
+}
+
+.moon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #ffd700, #ffec8b);
+    border-radius: 50%;
+    box-shadow: 0 0 30px #ffd700, 0 0 50px rgba(255, 215, 0, 0.5);
+    margin: 0 auto;
+    position: relative;
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 20px #ffd700, 0 0 40px rgba(255, 215, 0, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 30px #ffd700, 0 0 60px rgba(255, 215, 0, 0.6);
+    }
+}
+
+.moon::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+    background-color: #4a1d6a;
+    border-radius: 50%;
+    transform: translateX(5px);
+}
+
+.star {
+    position: absolute;
+    background-color: #ffd700;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(0.8);
+    }
+}
+
+.star-1 {
+    width: 25px;
+    height: 25px;
+    top: 20px;
+    left: 25%;
+    animation-delay: 0.2s;
+}
+
+.star-2 {
+    width: 20px;
+    height: 20px;
+    top: 40px;
+    right: 25%;
+    animation-delay: 0.5s;
+}
+
+.star-3 {
+    width: 30px;
+    height: 30px;
+    top: 70px;
+    left: 15%;
+    animation-delay: 0.8s;
+}
+
+.star-4 {
+    width: 15px;
+    height: 15px;
+    top: 30px;
+    right: 15%;
+    animation-delay: 1.2s;
+}
+
+.star-5 {
+    width: 18px;
+    height: 18px;
+    top: 80px;
+    right: 30%;
+    animation-delay: 0.3s;
+}
+
+.heading {
+    color: #ffffff;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.5);
+    font-weight: 700;
+    background: linear-gradient(to right, #ffffff, #ffd700);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s infinite;
+    letter-spacing: 2px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.subheading {
+    color: #ffd700;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 500;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.message {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.decoration {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.decoration-item {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, #ffd700, #ffec8b);
+    margin: 0 10px;
+    transform: rotate(45deg);
+    animation: rotate 10s infinite linear;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(45deg);
+    }
+    100% {
+        transform: rotate(405deg);
+    }
+}
+
+.decoration-item:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.decoration-item:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.footer {
+    margin-top: 30px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: 
+        radial-gradient(circle, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.1) 2px, transparent 2px);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Enhanced Fireworks Animation */
+.fireworks-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.firework {
+    position: absolute;
+    transform-origin: center;
+}
+
+.explosion {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    transform-origin: center;
+    opacity: 0;
+}
+
+@keyframes launch {
+    0% {
+        transform: translate(var(--x-start), 100vh) scale(0.1);
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x-end), var(--y-end)) scale(0.25);
+        opacity: 0;
+    }
+}
+
+@keyframes explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--dx), var(--dy)) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Islamic Ornaments */
+.ornament {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffd700' d='M50 0 L100 50 L50 100 L0 50 Z M50 20 L80 50 L50 80 L20 50 Z'/%3E%3C/svg%3E");
+    background-size: contain;
+    opacity: 0.2;
+}
+
+.ornament-1 {
+    top: 10%;
+    left: 5%;
+    animation: float 15s infinite ease-in-out;
+}
+
+.ornament-2 {
+    top: 20%;
+    right: 5%;
+    animation: float 12s infinite ease-in-out reverse;
+}
+
+.ornament-3 {
+    bottom: 15%;
+    left: 8%;
+    animation: float 18s infinite ease-in-out;
+}
+
+.ornament-4 {
+    bottom: 10%;
+    right: 8%;
+    animation: float 14s infinite ease-in-out reverse;
+}
+
+/* Lantern Animation */
+.lantern {
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    background: linear-gradient(to bottom, #ffd700, #ff8c00);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+    animation: sway 5s infinite ease-in-out;
+}
+
+.lantern::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    width: 10px;
+    height: 10px;
+    background-color: #ffd700;
+    border-radius: 50%;
+}
+
+.lantern-1 {
+    top: 15%;
+    left: 10%;
+    animation-delay: 0.5s;
+}
+
+.lantern-2 {
+    top: 25%;
+    right: 10%;
+    animation-delay: 1s;
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: translateX(0) rotate(3deg);
+    }
+    50% {
+        transform: translateX(10px) rotate(-3deg);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .eid-card {
+        padding: 30px 20px;
+    }
+    
+    .heading {
+        font-size: 2.5rem;
+    }
+    
+    .subheading {
+        font-size: 1.3rem;
+    }
+    
+    .message {
+        font-size: 1.1rem;
+        padding: 0 10px;
+    }
+    
+    .moon {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .moon::before {
+        width: 65px;
+        height: 65px;
+        top: 8px;
+        left: 15px;
+    }
+    
+    .moon-stars-container {
+        height: 120px;
+    }
+    
+    .ornament {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .watermark {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .eid-card {
+        padding: 25px 15px;
+    }
+    
+    .heading {
+        font-size: 2rem;
+    }
+    
+    .subheading {
+        font-size: 1.1rem;
+    }
+    
+    .message {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .moon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .moon::before {
+        width: 55px;
+        height: 55px;
+        top: 8px;
+        left: 15px;
+    }
+    
+    .decoration-item {
+        width: 20px;
+        height: 20px;
+        margin: 0 8px;
+    }
+    
+    .moon-stars-container {
+        height: 100px;
+    }
+    
+    .star-1, .star-3 {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .star-2, .star-4, .star-5 {
+        width: 15px;
+        height: 15px;
+    }
+    
+    .ornament {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .watermark {
+        font-size: 10px;
+        top: 10px;
+        right: 15px;
+    }
+}
